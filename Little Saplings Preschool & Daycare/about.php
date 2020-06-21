@@ -1,6 +1,5 @@
 <?php 
 include("header.php");
-echo test;
 ?>
     <!-- Content -->
     <div class="page-content">
