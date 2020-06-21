@@ -121,13 +121,13 @@ $page = $row['page'];
 						</a>
 						<h2 class="item-title">
 							<a
-								href="product_detail.php?token=<?php echo $abc['product_id'] ?>"><?php echo $abc["name"];?></a>
+								href="product_detail.php?token=<?php echo $abc['product_id'] ?>"><?php echo ucwords(strtolower($abc["name"]));?></a>
 						</h2>
-						<div class="text-center">
+						<div class="product_details text-center">
 							<strong class="item-price">Rs.
 								<?php echo $abc['min_price'].".00 - Rs.".$abc['max_price'].".00";?></strong>
 							<p><span><?php echo "(GST: ".$abc['gst'].")" ?></span></p>
-						</div>
+						
 						<div class="add-cart text-center my-3">
 							<p>
 								<button class="buy-now btn btn-sm height-auto px-3 py-2 btn-primary">Add
@@ -135,6 +135,7 @@ $page = $row['page'];
 								</button>
 							</p>
 						</div>
+					</div>
 					</div>
 					<?php } ?>
 				</div>

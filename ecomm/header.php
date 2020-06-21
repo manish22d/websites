@@ -2,20 +2,17 @@
 $host = "localhost";
 $user = "root";
 $password = "";
-// $user = "didofhxb_ankita";
-// $password = "kimti@204";
 
 // Create connection
-// $con = mysqli_connect($host, $user, $password, "didofhxb_ecomm");
 $con = mysqli_connect($host, $user, $password, "ecomm");
 
 // Check connection
 if (! $con) {
     die("Connection failed: " . mysqli_connect_error());
-}
-if (! isset($_SESSION)) {
+	}
+if (!isset($_SESSION)) {
     session_start();
-}
+	}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,89 +41,74 @@ if (! isset($_SESSION)) {
 
 <body>
 
-	<script src="js/jquery-3.3.1.min.js"></script>
-	<div class="site-wrap">
-		<div class="site-navbar bg-white py-2">
-			<div class="search-wrap">
-				<div class="container">
-					<!-- <a href="#" class="search-close js-search-close"><span
-						class="icon-close2"></span></a>
-					<form action="#" method="post">
-						<input type="text" class="form-control"
-							placeholder="Search keyword and hit enter...">
-					</form> -->
-				</div>
-			</div>
-			<div class="container">
-				<div class="d-flex align-items-center justify-content-between">
-					<div class="logo">
-						<div class="site-logo">
-							<a href="index.php" class="js-logo-clone"> <img src="images/logo/logo.jpg"
-									alt="Company Logo" class="img-fluid img-responsive">
-							</a>
-						</div>
+<script src="js/jquery-3.3.1.min.js"></script>
+<div class="site-wrap">
+	<div class="site-navbar bg-white py-2">
+		<div class="search-wrap">
+			<div class="container"></div>
+		</div>
+		<div class="container">
+			<div class="d-flex align-items-center justify-content-between">
+				<div class="logo">
+					<div class="site-logo">
+						<a href="index.php" class="js-logo-clone">
+							<img src="images/logo/logo.png" alt="Company Logo" class="img-fluid img-responsive">
+						</a>
 					</div>
-					<div class="main-nav d-none d-lg-block">
-						<nav class="site-navigation text-right text-md-center" role="navigation">
-							<ul class="site-menu js-clone-nav d-none d-lg-block">
-								<li><a href="index.php">Home</a></li>
-								<li><a href="about.php">About</a></li>
-								<!-- <li><a href="shop.php">Shop</a></li> -->
-								<li class="has-children"><a href="javascript:void(0)">Collection</a>
+				</div>
+				<div class="main-nav d-none d-lg-block">
+					<nav class="site-navigation text-right text-md-center" role="navigation">
+						<ul class="site-menu js-clone-nav d-none d-lg-block">
+							<li><a href="index.php">Home</a></li>
+							<li><a href="about.php">About</a></li>
+					   <!-- <li><a href="shop.php">Shop</a></li> -->
+							<li class="has-children"><a href="javascript:void(0)">Collection</a>
+							<ul class="dropdown">
+								<li class="has-children"><a href="men-collection.php">Men</a>
 									<ul class="dropdown">
-										<li class="has-children"><a href="men-collection.php">Men</a>
-											<ul class="dropdown">
+										<?php
+											$sql = "SELECT DISTINCT category FROM product where collection = 'men'";
+											$query = mysqli_query($con, $sql);
+											if (mysqli_num_rows($query) == 0)
+												echo "<li>No Products Found</li>";
+												while ($row = mysqli_fetch_array($query))
+												{
+												$men_category = $row['category'];
+										?>
+											<li><a href="men-collection.php?type=<?php echo $men_category; ?>"><?php echo $men_category; ?></a></li>
+										<?php } ?>
 
-												<?php
-													$sql = "SELECT DISTINCT category FROM product where collection = 'men'";
-													$query = mysqli_query($con, $sql);
-													if (mysqli_num_rows($query) == 0)
-														echo "<li>No Products Found</li>";
-													while ($row = mysqli_fetch_array($query)) {
-														$men_category = $row['category'];
-
-														?>
-												<li><a href="men-collection.php?token=<?php echo $men_category; ?>"><?php echo $men_category; ?></a></li>
-												<?php } ?>
-
-											</ul>
+									</ul>
+								</li>
+								<li class="has-children"><a href="women-collection.php">Women</a>
+									<ul class="dropdown">
+										<?php
+											$sql = "SELECT DISTINCT category FROM product where collection = 'women'";
+											$query = mysqli_query($con, $sql);
+											if (mysqli_num_rows($query) == 0)
+												echo "<li>No Products Found</li>";
+											while ($row = mysqli_fetch_array($query))
+											{
+											$women_category = $row['category'];
+										?>
+										<li><a href="women-collection.php?type=<?php echo $women_category; ?>"><?php echo $women_category; ?></a>
 										</li>
-										<li class="has-children"><a href="women-collection.php">Women</a>
-											<ul class="dropdown">
-												<?php
-													$sql = "SELECT DISTINCT category FROM product where collection = 'women'";
-													$query = mysqli_query($con, $sql);
-
-													if (mysqli_num_rows($query) == 0)
-														echo "<li>No Products Found</li>";
-													while ($row = mysqli_fetch_array($query)) {
-														$women_category = $row['category'];
-
-														?>
-												<li><a href="women-collection.php?token=<?php echo $women_category; ?>"><?php echo $women_category; ?></a>
-												</li>
-												<?php  }?>
-												<!-- <li><a href="women-collection.php">Sportswear</a></li> -->
-												<!-- <li><a href="#">Menu Three</a></li> -->
-											</ul>
-										</li>
-										<li class="has-children"><a href="children-collection.php">Children</a>
-											<ul class="dropdown">
-												<?php
-													$sql = "SELECT DISTINCT category FROM product where collection = 'children'";
-													$query = mysqli_query($con, $sql);
-													if (mysqli_num_rows($query) == 0)
-														echo "<li>No Products Found</li>";
-													while ($row = mysqli_fetch_array($query)) {
-														$children_category = $row['category'];
-
-														?>
-												<li><a
-														href="children-collection.php?token=<?php echo $children_category; ?>"><?php echo $children_category; ?></a>
-												</li>
-												<?php } ?>
-												<!-- <li><a href="children-collection.php">Bumchums</a></li> -->
-												<!-- <li><a href="#">Menu Three</a></li> -->
+										<?php  }?>
+									</ul>
+								</li>
+								<li class="has-children"><a href="children-collection.php">Children</a>
+									<ul class="dropdown">
+										<?php
+											$sql = "SELECT DISTINCT category FROM product where collection = 'children'";
+											$query = mysqli_query($con, $sql);
+											if (mysqli_num_rows($query) == 0)
+												echo "<li>No Products Found</li>";
+											while ($row = mysqli_fetch_array($query)) {
+											$children_category = $row['category'];
+											?>
+											<li><a href="children-collection.php?type=<?php echo $children_category; ?>"><?php echo $children_category; ?></a>
+											</li>
+											<?php } ?>
 											</ul>
 										</li>
 									</ul>
@@ -134,10 +116,10 @@ if (! isset($_SESSION)) {
 								<!-- <li><a href="new_arrivals.php">New Arrivals</a></li> -->
 								<li><a href="contact.php">Contact</a></li>
 							</ul>
-						</nav>
-					</div>
-					<div class="icons">
-						<!-- <a href="#" class="icons-btn d-inline-block js-search-open"><span class="icon-search"></span></a> -->
+					</nav>
+				</div>
+				<div class="icons">
+				<!-- <a href="#" class="icons-btn d-inline-block js-search-open"><span class="icon-search"></span></a> -->
 						<!-- <a href="#" class="icons-btn d-inline-block"><span class="icon-heart-o"></span></a> -->
 						<?php
 							if (isset($_SESSION["user_detail"])) {
@@ -148,6 +130,17 @@ if (! isset($_SESSION)) {
 								// echo '<a href="registered.php" class="icons-btn d-inline-block"> Create Account &nbsp;&nbsp; </a>';
 
 								echo '<a href="login.php" class="icons-btn d-inline-block">&nbsp;&nbsp; Login &nbsp; </a>';
+								echo '<script>
+									$(document).ready(function () {
+										console.log("executing else part");
+										var item = document.querySelectorAll(".product_details");
+										console.log(item.length);
+										document.querySelectorAll(".product_details").forEach(function(item){
+												console.log("manish");
+												item.style.display="none";
+											});
+									});
+									</script>';
 							}
 							?>
 

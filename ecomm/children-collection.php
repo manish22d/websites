@@ -2,8 +2,6 @@
 include ("header.php");
 include ('functions.php');
 include ('item.php');
-$get_id = $_GET['token'];
-//echo $get_id;
 $sql = "SELECT * FROM banner WHERE page = 'children' ORDER BY id DESC LIMIT 1";
 $query = mysqli_query($con, $sql);
 if (! $query) {
@@ -93,7 +91,11 @@ $page = $row['page'];
             <?php
             $item_array = array();
             
-            $sql = "SELECT * from product WHERE collection = 'children' and category = '$get_id' and stock>0";
+            $sql = "SELECT * from product WHERE collection = 'children' and stock>0";
+            if (isset($_GET['type'])){
+				$get_id=$_GET['type'];
+				$sql .= " and category = '$get_id'";
+			}
             $query = mysqli_query($con, $sql);
             if (! $query) {
                 echo "error: " . $sql . "<br/>" . mysqli_error($con);
@@ -123,13 +125,12 @@ $page = $row['page'];
 							alt="Image" class="img-fluid">
 						</a>
 						<h2 class="item-title">
-							<a href="product_detail.php?token=<?php echo $abc['product_id'] ?>"><?php echo $abc["name"];?></a>
+							<a href="product_detail.php?token=<?php echo $abc['product_id'] ?>"><?php echo ucwords(strtolower($abc["name"]));?></a>
 						</h2>
-						<div class="text-center">
+						<div class="product_details text-center">
 							<strong class="item-price">Rs.
 								<?php echo $abc['min_price'].".00 - Rs. ".$abc['max_price'].".00";?></strong>
 							<p><span><?php echo "(GST: ".$abc['gst'].")" ?></span></p>
-						</div>
 						<div class="add-cart text-center my-2">
 							<p>
 								<button class="buy-now btn btn-sm height-auto px-3 py-2 btn-primary">Add
@@ -137,6 +138,7 @@ $page = $row['page'];
 								</button>
 							</p>
 						</div>
+					</div>
 					</div>
               <?php } ?>
             </div>

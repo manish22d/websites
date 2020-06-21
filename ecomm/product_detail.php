@@ -59,8 +59,8 @@ $getid = $_GET['token'];
         </div>
 
         <?php 
-  for($i = 1; $i < sizeof($other_img); $i++){
-  ?>
+          for($i = 1; $i < sizeof($other_img); $i++){
+        ?>
         <div class="mySlides">
           <div class="numbertext"><?php echo $i+1; ?> / <?php echo $size_of_all_img-1 ?></div>
           <div class="product-item md-height d-block">
@@ -97,9 +97,9 @@ $getid = $_GET['token'];
         </div>
       </div>
       <div class="col-md-6">
-        <h2 class="text-black"><?php echo $result['name']; ?></h2>
+        <h2 class="text-black"><?php echo ucwords(strtolower($result['name'])); ?></h2>
         <p><?php echo $result["description"];?></p>
-        <!-- <p><strong class="item-price h4"><del>Rs. <?php echo $result["original_price"];?>.00</del> Rs. <?php echo $result["discounted_price"];?>.00</strong></p> -->
+        <div class="product_details">
         <form method="post">
           <h6 class="text-black">Available Size</h6>
           <div class="mb-1 d-flex">
@@ -169,6 +169,7 @@ $getid = $_GET['token'];
             </button>
           </p>
         </div>
+      </div>
       </div>
     </div>
   </div>
