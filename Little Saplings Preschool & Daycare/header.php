@@ -29,6 +29,11 @@
 	<link class="skin" rel="stylesheet" type="text/css" href="css/skin/skin-1.css">
 </head>
 <body id="bg">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<!-- <script type="text/JavaScript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js" ></script> -->
+<!-- <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script> -->
+
+<script language="JavaScript" type="text/javascript" src="js/jquery-ui.js"></script>
 <div class="page-wraper">
 <!-- <div id="loading-area" class="loading-1"><h1 class="loader1">Loading</h1></div> -->
 	<!-- header -->
