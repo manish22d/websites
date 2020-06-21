@@ -468,21 +468,9 @@ function fixStepIndicator(n) {
 </script>
 <script>
                 $(document).ready(function () {
-                  $(document).on('change', '#test', function () {
-                    var itemValues = [];
-                    document.getElementsByName('productSize[]').forEach(item => itemValues.push(item.value));
-                    if (new Set(itemValues).size != itemValues.length) {
-                      alert("Please select different sizes in dropdown");
-                      $(this).closest('tr').css({
-                        'border': '2px solid red'
-                      });
-                    } else {
-                      document.getElementsByName('productSize[]').forEach(item => item.parentElement
-                        .parentElement.style.border = '');
-                    }
-                  })
                   var i = 0;
                   $(document).on('click', '.add', function () {
+                    console.log("manu");
                     var html = '';
                     html += '<tr>';
                     html +=
