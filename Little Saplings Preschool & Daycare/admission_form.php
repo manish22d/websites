@@ -455,3 +455,80 @@ function fixStepIndicator(n) {
 <?php
 include("footer.php");
 ?>
+
+<div class="form-group table-responsive">
+              <label for="product_size" class="col-form-label">Size</label>
+              <table class="table table-bordered" id="item_table">
+                <tr>
+                  <th>Product Size</th>
+                  <th>Price per Item</th>
+                  <th>No. of items per Set</th>
+                  <th>Color</th>
+                  <th>
+                    <button type="button" class="btn btn-success btn-sm add">
+                      <span class="glyphicon glyphicon-plus">+ Add</span>
+                    </button>
+                  </th>
+                </tr>
+              </table>
+
+              <script>
+                $(document).ready(function () {
+                  $(document).on('change', '#test', function () {
+                    var itemValues = [];
+                    document.getElementsByName('productSize[]').forEach(item => itemValues.push(item.value));
+                    if (new Set(itemValues).size != itemValues.length) {
+                      alert("Please select different sizes in dropdown");
+                      $(this).closest('tr').css({
+                        'border': '2px solid red'
+                      });
+                    } else {
+                      document.getElementsByName('productSize[]').forEach(item => item.parentElement
+                        .parentElement.style.border = '');
+                    }
+                  })
+                  var i = 0;
+                  $(document).on('click', '.add', function () {
+                    var html = '';
+                    html += '<tr>';
+                    html +=
+                      '<td><select id="test" style="width: 100%;padding:3%" name="productSize[]" required>'
+                    html += '<?php echo updateSizeOptions($sizeArray);?>';
+                    html += '</select></td>';
+                    html += '<td><input type="text" name="PricePerItem[]" class="form-control" /></td>';
+                    html += '<td><input type="text" name="ItemPerSet[]" class="form-control" /></td>';
+                    html +=
+                      '<td><select size="5" multiple style="width: 100%;margin-left: 2%;margin-right: 2%;" name="product_color[' +
+                      i + '][]" required>'
+                    html += '<?php echo updateColorOptions($colorArray);?>';
+                    html += '</select></td>';
+                    html +=
+                      '<td><button type="button" name="remove" class="btn btn-danger btn-sm remove"><span class="glyphicon glyphicon-minus">X</span></button></td></tr>';
+                    $('#item_table').append(html);
+                    i = i + 1;
+                  });
+                  $(document).on('click', '.remove', function () {
+                    $(this).closest('tr').remove();
+                  });
+
+                });
+              </script>
+            </div>
+
+            <?php
+            function updateSizeOptions($sizeArray){
+  $options='';
+  foreach($sizeArray as $itemSize){
+    $options.='<option style="padding-left: 10%;padding-top:5%;" value="'.$itemSize.'" >'.$itemSize.'</option>';
+  }
+  return $options;
+}
+
+function updateColorOptions($colorArray){
+  $options='';
+  foreach($colorArray as $itemColor){
+    $options.='<option style="padding-left: 10%;padding-top:5%;" value="'.$itemColor.'" >'.$itemColor.'</option>';
+  }
+  return $options;
+}
+            ?>
