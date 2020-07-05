@@ -70,7 +70,7 @@ if(isset($_SESSION["admin_detail"]))
       <th scope="col">Yearly Trunover</th>
       <th scope="col">Intrested In</th>
       <th scope="col">Whatsapp Number</th>
-      <th scope="col">Visiting Card Image</th>
+      <th scope="col">Visiting Card</th>
       <th scope="col">Booking Station</th>
       <th scope="col">Private Marka</th>
       <th scope="col">Transport Detail</th>
@@ -128,14 +128,15 @@ if(isset($_SESSION["admin_detail"]))
                   <td><?php echo $contact_person ?></td>
                   <td><?php echo $interested_in ?></td>
                   <td><?php echo $whatsapp_number ?></td>
-                  <td><?php echo $visiting_card ?></td>
+                  <td><img alt="" class="img-fluid"
+									src="../images/visiting_card/<?php echo $visiting_card; ?>"></td>
                   <td><?php echo $booking_station ?></td>
                   <td><?php echo $private_marka ?></td>
                   <td><?php echo $transport_details ?></td>
                 </tr>
     <?php $i++; $j++; } ?>
     <tr>
-    <td colspan="2">
+    <td colspan="4">
       <button class="btn btn-success" name="approve" >Approve</button>
     </td>
     </tr>

@@ -58,18 +58,6 @@ $page = $row['page'];
 						<div class="float-md-left">
 							<h2 class="text-black h5">Shop All</h2>
 						</div>
-						<div class="d-flex">
-							<div class="dropdown mr-1 ml-md-auto">
-								<button type="button" class="btn btn-white btn-sm dropdown-toggle px-4"
-									id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true"
-									aria-expanded="false">Latest</button>
-								<div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-									<a class="dropdown-item" href="men-collection.php">Men</a> <a class="dropdown-item"
-										href="women-collection.php">Women</a> <a class="dropdown-item"
-										href="children-collection.php">Children</a>
-								</div>
-							</div>
-						</div>
 					</div>
 				</div>
 				<div class="row mb-5">
@@ -102,7 +90,7 @@ $page = $row['page'];
 					<div class="col-lg-4 col-md-6 item-entry mb-4">
 						<a href="product_detail.php?token=<?php echo $abc['product_id'] ?>"
 							class="product-item md-height d-block"> <img
-								src="images/product/<?php echo $abc['collection'];?>/<?php echo $abc['category'];?>/<?php echo $abc["img"];?>"
+								src="images/product/children/<?php echo $abc['collection'];?>/<?php echo $abc['category'];?>/<?php echo $abc["img"];?>"
 								alt="Image" class="img-fluid">
 						</a>
 						<h2 class="item-title">
@@ -114,7 +102,7 @@ $page = $row['page'];
 								<?php echo $abc['min_price'].".00 - Rs.".$abc['max_price'].".00";?></strong>
 							<p><span><?php echo "(GST: ".$abc['gst'].")" ?></span></p>
 
-							<div class="add-cart text-center my-3">
+							<div class="text-center my-3">
 								<p><a href="product_detail.php?token=<?php echo $abc['product_id'] ?>">
 										<button class="buy-now btn btn-sm height-auto px-3 py-2 btn-primary">View
 											Details</button>
@@ -138,33 +126,43 @@ $page = $row['page'];
 
 			</h2>
 		</div>
-		<div class="row align-items-stretch">
+<div class="row align-items-stretch">
 			<div class="col-lg-6">
 				<?php
-$query = mysqli_query($con, "SELECT * FROM feature WHERE type='women' ORDER BY id DESC LIMIT 1");
-$img = mysqli_fetch_array($query)['img'];
-?>
-				<div class="product-item sm-height full-height bg-gray">
-					<a href="women-collection.php" class="product-category">Women</a> <img
-						src="images/feature/<?php echo $img;?>" alt="Image" class="img-fluid">
-				</div>
-			</div>
-			<div class="col-lg-6">
-				<?php
-$query = mysqli_query($con, "SELECT * FROM feature WHERE type='men' ORDER BY id DESC LIMIT 1");
-$img = mysqli_fetch_array($query)['img'];
-?>
+					$query = mysqli_query($con, "SELECT * FROM feature WHERE type='baba suit' ORDER BY id DESC LIMIT 1");
+					$img = mysqli_fetch_array($query)['img'];
+				?>
 				<div class="product-item sm-height bg-gray mb-4">
-					<a href="men-collection.php" class="product-category">Men </a>
+					<a href="product.php?type=babasuit" class="product-category">Baba Suit </a>
 					<img src="images/feature/<?php echo $img;?>" alt="Image" class="img-fluid">
 				</div>
 				<div class="product-item sm-height bg-gray">
 					<?php
-    $query = mysqli_query($con, "SELECT * FROM feature WHERE type='children' ORDER BY id DESC LIMIT 1");
-    $img = mysqli_fetch_array($query)['img'];
-    ?>
-					<a href="children-collection.php" class="product-category">Children
-					</a> <img src="images/feature/<?php echo $img;?>" alt="Image" class="img-fluid">
+    					$query = mysqli_query($con, "SELECT * FROM feature WHERE type='shirt' ORDER BY id DESC LIMIT 1");
+    					$img = mysqli_fetch_array($query)['img'];
+    				?>
+					<a href="product.php?type=shirt" class="product-category">SHIRT
+					</a>
+					<img src="images/feature/<?php echo $img;?>" alt="Image" class="img-fluid">
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<?php
+					$query = mysqli_query($con, "SELECT * FROM feature WHERE type='ethnic wear' ORDER BY id DESC LIMIT 1");
+					$img = mysqli_fetch_array($query)['img'];
+				?>
+				<div class="product-item sm-height bg-gray mb-4">
+					<a href="product.php?type=ethnic wear" class="product-category">ETHNIC WEAR</a>
+					<img src="images/feature/<?php echo $img;?>" alt="Image" class="img-fluid">
+				</div>
+				<div class="product-item sm-height bg-gray">
+					<?php
+    					$query = mysqli_query($con, "SELECT * FROM feature WHERE type='infant' ORDER BY id DESC LIMIT 1");
+    					$img = mysqli_fetch_array($query)['img'];
+    				?>
+					<a href="product.php?type=infant" class="product-category">INFANT
+					</a>
+					<img src="images/feature/<?php echo $img;?>" alt="Image" class="img-fluid">
 				</div>
 			</div>
 		</div>

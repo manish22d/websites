@@ -36,7 +36,7 @@ if (isset($_SESSION["admin_detail"])) {
 					<li class="nav-item"><a class="nav-link" href="../banner/banner.php">Banner</a></li>
 					<li class="nav-item"><a class="nav-link" href="../feature/feature.php">Feature Image</a></li>
 				</ul>
-				<a href="logout.php" title="Logout"> <img src="../assets/images/logout.png" alt="" style="width: 40px"
+				<a href="logout.php" title="Logout"> <img src="assets/images/logout.png" alt="" style="width: 40px"
 						class="img-responsive">
 				</a>
 			</div>
@@ -112,7 +112,6 @@ if (isset($_SESSION["admin_detail"])) {
         $brand = $row['brand'];
         $sku_id = $row['sku_id'];
         $gst = $row['gst'];
-        // $discounted_price = $row['discounted_price'];
         $description = $row['description'];
         $collection = $row['collection'];
         $category = $row['category'];
@@ -129,7 +128,7 @@ if (isset($_SESSION["admin_detail"])) {
 							<th scope="row"><?php echo $i; ?></th>
 							<td><?php echo $upload_date; ?></td>
 							<td><img alt="" class="img-fluid"
-									src="../../images/product/<?php echo $collection;?>/<?php echo $category;?>/<?php echo $img ?>">
+									src="../../images/product/children/<?php echo $collection;?>/<?php echo $category;?>/<?php echo $img ?>">
 							</td>
 							<td><?php echo $img ; ?></td>
 							<td><?php echo wordwrap($other_img,16,"<br>\n",true); ?></td>
@@ -180,7 +179,6 @@ if (isset($_SESSION["admin_detail"])) {
 							<td><?php echo $brand; ?></td>
 							<td><?php echo $sku_id; ?></td>
 							<td><?php echo $gst; ?></td>
-							<!-- <td><?php echo $discounted_price; ?></td> -->
 							<td><?php echo substr($description,0,40); ?></td>
 							<td><?php echo $collection; ?></td>
 							<td><?php echo $category; ?></td>

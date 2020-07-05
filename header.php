@@ -1,10 +1,12 @@
 <?php
 $host = "localhost";
-$user = "root";
-$password = "";
+// $user = "root";
+// $password = "";
+$user = "ecomm";
+$password = "ecomm@2020";
 
 // Create connection
-$con = mysqli_connect($host, $user, $password, "ecomm");
+$con = new mysqli($host, $user, $password, "ecomm");
 
 // Check connection
 if (! $con) {
@@ -62,51 +64,134 @@ if (!isset($_SESSION)) {
 							<li><a href="index.php">Home</a></li>
 							<li><a href="about.php">About</a></li>
 					   <!-- <li><a href="shop.php">Shop</a></li> -->
-							<li class="has-children"><a href="javascript:void(0)">Category</a>
+							<li class="has-children"><a href="javascript:void(0)">Product</a>
 							<ul class="dropdown">
-								<li class="has-children"><a href="men-collection.php">Men</a>
+								<li class="has-children"><a href="product.php?type=babasuit">BABASUIT</a>
 									<ul class="dropdown">
 										<?php
-											$sql = "SELECT DISTINCT category FROM product where collection = 'men'";
+											$sql = "SELECT  distinct category  FROM product where collection = 'babasuit'";
 											$query = mysqli_query($con, $sql);
 											if (mysqli_num_rows($query) == 0)
 												echo "<li>No Products Found</li>";
 												while ($row = mysqli_fetch_array($query))
 												{
-												$men_category = $row['category'];
+													$category = $row['category'];
+													$collection = 'babasuit';
 										?>
-											<li><a href="men-collection.php?type=<?php echo $men_category; ?>"><?php echo $men_category; ?></a></li>
+											<li><a href="product.php?type=<?php echo $collection.'-'.$category; ?>"><?php echo $category; ?></a></li>
 										<?php } ?>
 
 									</ul>
 								</li>
-								<li class="has-children"><a href="women-collection.php">Women</a>
+								<li class="has-children"><a href="product.php?type=shirt">SHIRT</a>
 									<ul class="dropdown">
 										<?php
-											$sql = "SELECT DISTINCT category FROM product where collection = 'women'";
+											$sql = "SELECT distinct category FROM product where collection = 'shirt'";
 											$query = mysqli_query($con, $sql);
 											if (mysqli_num_rows($query) == 0)
 												echo "<li>No Products Found</li>";
 											while ($row = mysqli_fetch_array($query))
 											{
-											$women_category = $row['category'];
+											$category = $row['category'];
+											$collection = 'shirt';
 										?>
-										<li><a href="women-collection.php?type=<?php echo $women_category; ?>"><?php echo $women_category; ?></a>
+										<li><a href="product.php?type=<?php echo $collection.'-'.$category; ?>"><?php echo $category; ?></a>
 										</li>
 										<?php  }?>
 									</ul>
 								</li>
-								<li class="has-children"><a href="children-collection.php">Children</a>
+								<li class="has-children"><a href="product.php?type=ethnic wear">ETHNIC WEAR</a>
 									<ul class="dropdown">
 										<?php
-											$sql = "SELECT DISTINCT category FROM product where collection = 'children'";
+											$sql = "SELECT distinct category  FROM product where collection = 'ethnic wear'";
 											$query = mysqli_query($con, $sql);
 											if (mysqli_num_rows($query) == 0)
 												echo "<li>No Products Found</li>";
 											while ($row = mysqli_fetch_array($query)) {
-											$children_category = $row['category'];
+											$category = $row['category'];
+											$collection = 'ethnic wear';
 											?>
-											<li><a href="children-collection.php?type=<?php echo $children_category; ?>"><?php echo $children_category; ?></a>
+											<li><a href="product.php?type=<?php echo $collection.'-'.$category; ?>"><?php echo $category; ?></a>
+											</li>
+											<?php } ?>
+											</ul>
+										</li>
+										<li class="has-children"><a href="product.php?type=tshirt">T-SHIRT</a>
+									<ul class="dropdown">
+										<?php
+											$sql = "SELECT distinct category  FROM product where collection = 'tshirt'";
+											$query = mysqli_query($con, $sql);
+											if (mysqli_num_rows($query) == 0)
+												echo "<li>No Products Found</li>";
+											while ($row = mysqli_fetch_array($query)) {
+											$category = $row['category'];
+											$collection = 'tshirt';
+											?>
+											<li><a href="product.php?type=<?php echo $collection.'-'.$category; ?>"><?php echo $category; ?></a>
+											</li>
+											<?php } ?>
+											</ul>
+										</li>
+										<li class="has-children"><a href="product.php?type=pant">PANT</a>
+									<ul class="dropdown">
+										<?php
+											$sql = "SELECT distinct category FROM product where collection = 'pant'";
+											$query = mysqli_query($con, $sql);
+											if (mysqli_num_rows($query) == 0)
+												echo "<li>No Products Found</li>";
+											while ($row = mysqli_fetch_array($query)) {
+											$category = $row['category'];
+											$collection = 'pant';
+											?>
+											<li><a href="product.php?type=<?php echo $collection.'-'.$category; ?>"><?php echo $category; ?></a>
+											</li>
+											<?php } ?>
+											</ul>
+										</li>
+										<li class="has-children"><a href="product.php?type=track pant">TRACK PANT</a>
+									<ul class="dropdown">
+										<?php
+											$sql = "SELECT distinct category FROM product where collection = 'track pant'";
+											$query = mysqli_query($con, $sql);
+											if (mysqli_num_rows($query) == 0)
+												echo "<li>No Products Found</li>";
+											while ($row = mysqli_fetch_array($query)) {
+											$category = $row['category'];
+											$collection =  'track pant';
+											?>
+											<li><a href="product.php?type=<?php echo $collection.'-'.$category; ?>"><?php echo $category; ?></a>
+											</li>
+											<?php } ?>
+											</ul>
+										</li>
+										<li class="has-children"><a href="product.php?type=capri">CAPRI</a>
+									<ul class="dropdown">
+										<?php
+											$sql = "SELECT  distinct category FROM product where collection = 'capri'";
+											$query = mysqli_query($con, $sql);
+											if (mysqli_num_rows($query) == 0)
+												echo "<li>No Products Found</li>";
+											while ($row = mysqli_fetch_array($query)) {
+											$category = $row['category'];
+											$collection = 'capri';
+											?>
+											<li><a href="product.php?type=<?php echo $collection.'-'.$category; ?>"><?php echo $category; ?></a>
+											</li>
+											<?php } ?>
+											</ul>
+										</li>
+										<li class="has-children"><a href="product.php?type=infant">INFANT</a>
+									<ul class="dropdown">
+										<?php
+											$sql = "SELECT distinct category FROM product where collection = 'infant'";
+											$query = mysqli_query($con, $sql);
+											if (mysqli_num_rows($query) == 0)
+												echo "<li>No Products Found</li>";
+											while ($row = mysqli_fetch_array($query)) {
+											$category = $row['category'];
+											$collection = 'infant';
+											?>
+											<li><a href="product.php?type=<?php echo $collection.'-'.$category; ?>"><?php echo $category; ?></a>
 											</li>
 											<?php } ?>
 											</ul>

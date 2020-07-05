@@ -20,8 +20,8 @@ include("functions.php");
                 <div class="login-form-grids animated wow slideInUp" data-wow-delay=".5s">
                     <form method="POST">
                         <input type="email" placeholder="Email Id" required=" " name="email">
-                        <input type="password" placeholder="Password" required=" " name="pass">
-                        <input type="password" placeholder="Re-Password" required=" " name="repass">
+                        <input type="password" placeholder="Old Password" required=" " name="pass">
+                        <input type="password" placeholder="New Password" required=" " name="newpass">
                         <!-- <div class="forgot">
                         <a href="#">Forgot Password?</a>
                         </div> -->
@@ -42,40 +42,37 @@ include("functions.php");
 include("footer.php");
 if (isset($_POST['ok'])) {
     $l_email = $_POST['email'];
-    $l_pass = $_POST['pass'];
-    $l_repass = $_POST['repass'];
-
+    $l_oldpass = $_POST['pass'];
+    $l_newpass = $_POST['newpass'];
+    //echo $l_pass."".$l_newpass;
+    
     $sql = "SELECT * FROM user WHERE email= '$l_email'";
+    echo $sql;
     $query = mysqli_query($con, $sql);
     if (! $query) {
         echo "fail" . mysqli_error($con);
     }
     if (mysqli_num_rows($query)>0){
-        $r_status = $row['status'];
-
-        if($l_pass == $l_repass && $r_status == "verified"){
-        $sql2 = "UPDATE user 
-                SET pass = '$l_pass',
-                    repass = '$l_pass',
-                    password_reset = 0
-                    WHERE email = '$l_email'";
-        $query2 = mysqli_query($con, $sql2);
-        
-        echo '<script type="text/javascript">
-                Swal.fire(
-            "You have successfully updated your password!",
-            "",
-            "success").then(function(){
-               window.location = "login.php";
-              });
-          </script>';
-        }else{
+        while($row = mysqli_fetch_array($query)){
+        $r_pass = $row['pass'];
+            echo $r_pass;
+        if($l_oldpass == $r_pass){
+            $sql2 = "UPDATE user 
+                    SET pass = '$l_newpass',
+                        repass = '$l_newpass',
+                        password_reset = 0
+                        WHERE email = '$l_email'";
+            $query2 = mysqli_query($con, $sql2);
+            
             echo '<script type="text/javascript">
-            Swal.fire(
-            "You email Id is not registered with Us , Please Register!!",
-            "",
-            "error");
-            </script>';
+                    Swal.fire(
+                "You have successfully updated your password!",
+                "",
+                "success").then(function(){
+                   window.location = "login.php";
+                  });
+              </script>';
+        }
         }
         }
         else{

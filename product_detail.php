@@ -54,7 +54,7 @@ $getid = $_GET['token'];
         <div class="mySlides">
           <div class="numbertext">1/ <?php echo $size_of_all_img ?></div>
           <div class="product-item md-height d-block">
-            <img src="images/product/<?php echo $collection.'/'.$category.'/'.$img?>" class="img-fluid img-responsive">
+            <img src="images/product/children/<?php echo $collection.'/'.$category.'/'.$img?>" class="img-fluid img-responsive">
           </div>
         </div>
 
@@ -64,7 +64,7 @@ $getid = $_GET['token'];
         <div class="mySlides">
           <div class="numbertext"><?php echo $i+1; ?> / <?php echo $size_of_all_img-1 ?></div>
           <div class="product-item md-height d-block">
-            <img src="images/product/<?php echo $collection.'/'.$category.'/'.$other_img[$i]?>"
+            <img src="images/product/children/<?php echo $collection.'/'.$category.'/'.$other_img[$i]?>"
               class="img-fluid img-responsive">
           </div>
         </div>
@@ -82,7 +82,7 @@ $getid = $_GET['token'];
         <!-- Thumbnail images -->
         <div class="row">
           <div class="column">
-            <img src="images/product/<?php echo $collection.'/'.$category.'/'.$img?>" style="width:100%"
+            <img src="images/product/children/<?php echo $collection.'/'.$category.'/'.$img?>" style="width:100%"
               onclick="currentSlide(1)" class="demo cursor" alt="<?php echo $result['name']; ?>">
           </div>
 
@@ -90,27 +90,27 @@ $getid = $_GET['token'];
           for($i = 1; $i < sizeof($other_img); $i++){
           ?>
           <div class="column">
-            <img src="images/product/<?php echo $collection.'/'.$category.'/'.$other_img[$i]?>" style="width:100%"
+            <img src="images/product/children/<?php echo $collection.'/'.$category.'/'.$other_img[$i]?>" style="width:100%"
               onclick="currentSlide(<?php echo $i+1; ?>)" class="demo cursor" alt="<?php echo $result['name']; ?>">
           </div>
           <?php } ?>
         </div>
       </div>
-      <div class="col-md-6 form-group">
+      <div class="col-md-6">
         <h2 class="text-black"><?php echo ucwords(strtolower($result['name'])); ?></h2>
         <p><?php echo $result["description"];?></p>
         <div class="product_details">
         <form method="post">
           <h6 class="text-black">Available Size</h6>
           <div class="mb-1 d-flex">
-            <label for="option-sm" class="d-flex mr-3 mb-3">
+            <label for="option" class="d-flex mr-3 mb-3">
               <span class="d-inline-block mr-2" style="top:-2px; position: relative;">
                 <div class="row">
                   <?php 
                     for($i=0;$i<count($size);$i++){
                     ?>
                   <div class="col-md-12">
-                    <input type="radio" id="option-sm" name="shop-sizes[]" value="<?php echo $size["$i"];?>" required>
+                    <input type="radio" id="option-sm" name="shop-sizes[]" value="<?php echo $size["$i"];?>">
                     <span class="d-inline-block text-black"> <?php echo $size["$i"];?> </span>
                   </div>
                   <?php } ?>
@@ -151,7 +151,7 @@ $getid = $_GET['token'];
 
           <h6 class="text-black">Available Color</h6>
           <div class="mb-1 d-flex">
-            <label for="option-sm" class="d-flex mr-3 mb-3">
+            <label for="option" class="d-flex mr-3 mb-3">
               <span class="d-inline-block mr-2" style="top:-2px; position: relative;">
 
                 <div id = "avialable_colors" class="row">
@@ -180,7 +180,7 @@ $getid = $_GET['token'];
   var cartItems = localStorage.getItem('productInCart');
   cartItems = JSON.parse(cartItems);
   Object.values(cartItems).map(item => {
-    if (item.product_id == < ? php echo $getid; ? > ) {
+    if (item.product_id == <?php echo $getid; ?> ) {
       var colors = document.getElementsByName('shop-colors[]');
       for (var i = 0; i < colors.length; i++) {
         if (colors[i].value == item.color)

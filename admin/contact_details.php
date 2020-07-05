@@ -60,7 +60,6 @@ if(isset($_SESSION["admin_detail"]))
       <th scope="col">Mobile No.</th>
       <th scope="col">Company Name</th>
       <th scope="col">Message</th>
-      <th></th>
     </tr>
   </thead>
   <tbody>

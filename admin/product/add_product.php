@@ -71,9 +71,14 @@
               <label for="collection" class="col-form-label">Collection</label>
               <select id="collection" class="form-control" name="collection" required>
                 <option>Choose...</option>
-                <option value="men">Men</option>
-                <option value="women">Women</option>
-                <option value="children">Children</option>
+                <option value="babasuit">babasuit</option>
+                <option value="shirt">shirt</option>
+                <option value="ethnic wear">ethnic wear</option>
+                <option value="tshirt">tshirt</option>
+                <option value="pant">pant</option>
+                <option value="track pant">track pant</option>
+                <option value="capri">capri</option>
+                <option value="infant">infant</option>
               </select>
             </div>
             <div class="form-group table-responsive">
@@ -254,7 +259,7 @@ if(isset($_POST['submit']))
   $img_name=$product_image['name'];
   $img_tempath=$product_image['tmp_name'];
 
-  $file = "../../images/product/$collection/$category";
+  $file = "../../images/product/children/$collection/$category";
 
   if(is_dir($file)) {
   echo ("$file is a directory");
@@ -265,7 +270,7 @@ if(isset($_POST['submit']))
   if($img_name!="")  {
     $temp = explode(".", $product_image['name']);
     $newfilename = round(microtime(true)) .'.'.end($temp);
-    move_uploaded_file($img_tempath,'../../images/product/'.$collection.'/'.$category.'/'.$newfilename);
+    move_uploaded_file($img_tempath,'../../images/product/children/'.$collection.'/'.$category.'/'.$newfilename);
   }
 
   $NameOfFiles = "";
@@ -279,7 +284,7 @@ if(isset($_POST['submit']))
     $temp = explode(".", $_FILES['other_product_image']['name'][$i]);
     $newotherfilename = round($time) .'.'.end($temp);
     array_push($otherImageFiles, $newotherfilename);
-    move_uploaded_file($_FILES['other_product_image']['tmp_name'][$i],'../../images/product/'.$collection.'/'.$category.'/'.$newotherfilename);
+    move_uploaded_file($_FILES['other_product_image']['tmp_name'][$i],'../../images/product/children/'.$collection.'/'.$category.'/'.$newotherfilename);
 
     $time = $time+10;
   }
@@ -301,6 +306,7 @@ if(isset($_POST['submit']))
   }else{
     $productID = mysqli_insert_id($con);
     for ($i=0; $i < sizeof($productSize) ; $i++) { 
+      echo gettype($product_color[$i]);
       $selectedColor = implode(',',$product_color[$i]);
       $sql = "INSERT into product_size (id, product_id, size,color, price_per_item, items_per_set)
       values(null, '$productID','$productSize[$i]','$selectedColor' ,'$PricePerItem[$i]', '$ItemPerSet[$i]' )";

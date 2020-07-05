@@ -1,13 +1,12 @@
 <?php
 $host = "localhost";
-$user = "root";
-$password = "";
-// $user = "didofhxb_ankita";
-// $password = "kimti@204";
+// $user = "root";
+// $password = "";
+$user = "ecomm";
+$password = "ecomm@2020";
 
 // Create connection
-// $con = mysqli_connect($host, $user, $password, "didofhxb_ecomm");
-$con = mysqli_connect($host, $user, $password, "ecomm");
+$con = new mysqli($host, $user, $password, "ecomm");
 
 // Check connection
 if (! $con) {

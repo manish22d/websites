@@ -97,11 +97,14 @@ while($row = mysqli_fetch_array($query))
 							<select id="collection" class="form-control" name="collection"
 								value="<?php echo $collection; ?>">
 								<option selected>Choose...</option>
-								<option value="men" <?php if($collection == "men") echo "selected"; ?>>Men</option>
-								<option value="women" <?php if($collection == "women") echo "selected"; ?>>Women
-								</option>
-								<option value="children" <?php if($collection == "children") echo "selected"; ?>>
-									Children</option>
+									<option value="babasuit" <?php if($collection == "babasuit") echo "selected"; ?>>babasuit</option>
+                <option value="shirt"  <?php if($collection == "shirt") echo "selected"; ?>>shirt</option>
+                <option value="ethnic wear"  <?php if($collection == "ethnic wear") echo "selected"; ?>>ethnic wear</option>
+                <option value="tshirt"  <?php if($collection == "tshirt") echo "selected"; ?>>tshirt</option>
+                <option value="pant"  <?php if($collection == "pant") echo "selected"; ?>>pant</option>
+                <option value="track pant"  <?php if($collection == "track pant") echo "selected"; ?>>track pant</option>
+                <option value="capri"  <?php if($collection == "capri") echo "selected"; ?>>capri</option>
+                <option value="infant"  <?php if($collection == "infant") echo "selected"; ?>>infant</option>
 							</select>
 						</div>
 						<div class="form-group table-responsive">
@@ -344,7 +347,7 @@ if (isset($_POST['submit'])) {
     if ($img_name != "") {
         $temp = explode(".", $product_image['name']);
         $newfilename = round(microtime(true)) . '.' . end($temp);
-        move_uploaded_file($img_tempath, '../../images/product/' . $collection . '/' . $category . '/' . $newfilename);
+        move_uploaded_file($img_tempath, '../../images/product/children/' . $collection . '/' . $category . '/' . $newfilename);
 	}
 	// foreach($product_color as $individualColor){
 	// 	$AllColor .= implode(",",$individualColor);
@@ -382,7 +385,7 @@ if (isset($_POST['submit'])) {
 
         $temp = explode(".", $_FILES['other_product_image']['name'][$i]);
         $newotherfilename = round($time) . '.' . end($temp);
-        move_uploaded_file($_FILES['other_product_image']['tmp_name'][$i], '../../images/product/' . $collection . '/' . $category . '/' . $newotherfilename);
+        move_uploaded_file($_FILES['other_product_image']['tmp_name'][$i], '../../images/product/children/' . $collection . '/' . $category . '/' . $newotherfilename);
         array_push($otherImageFiles, $newotherfilename);
         $time = $time + 10;
     }

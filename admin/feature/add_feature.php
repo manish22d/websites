@@ -53,9 +53,10 @@
               <label for="type" class="col-form-label">Type</label>
               <select id="type" class="form-control" name="type" required="">
                   <option selected>Choose...</option>
-                  <option value="men">Men</option>
-                  <option value="women">Women</option>
-                  <option value="children">Children</option>
+                  <option value="baba suit">baba suit</option>
+                  <option value="ethnic wear">ethnic wear</option>
+                  <option value="shirt">shirt</option>
+                  <option value="infant">infant</option>
                 </select>
             </div>
             <button type="submit" class="btn btn-primary" name="submit">Add</button>

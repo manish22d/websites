@@ -74,6 +74,7 @@ if (isset($_SESSION["admin_detail"])) {
 							<th scope="col">Button_text</th>
 							<th scope="col">Page</th>
 							<th></th>
+							<th></th>
 						</tr>
 					</thead>
 					<tbody>

@@ -72,7 +72,7 @@ include("functions.php");
                 <li class="address">IX/6342, Netaji Gali, Gandhi Nagar, Delhi 110031, India</li>
                 <li class="phone"><a href="tel:+917042425007" style="color: #000;">+91 7042425007</a></li>
                 <li class="mail"><a href="mailto:empirekids1991@gmail.com" style="color: #000;">empirekids1991@gmail.com</a></li>
-                <li style="padding-left: 0px;"><a href="https://www.facebook.com/empirekids1991/"><i class="fa fa-facebook"></i></a> &nbsp;&nbsp;<a href="https://instagram.com/empireapparelss?igshid=1p2zvucs1mpjx"><i class="fa fa-instagram"></i></a></li>
+                <li style="padding-left: 0px;"><a href="https://www.facebook.com/empirekids1991/"><img src="images/social/facebook.png" width="5%"></a> &nbsp;&nbsp;<a href="https://instagram.com/empireapparelss?igshid=1p2zvucs1mpjx"><img src="images/social/instagram.png" width="5%"></a></li>
                 <!-- <li class="email"><a href="mailto:ankitbansal2002@gmail.com">ankitbansal2002@gmail.com</a></li> -->
               </ul>
 <!--               <span class="d-block text-primary h6 text-uppercase">Address</span> -->

@@ -211,8 +211,8 @@ function displayCart() {
 		Object.values(cartItems).map(abc => {
 			quantityTotal = abc.inCart;
 			if (productContainer != null) {
-
-				var image = '<td class="product-thumbnail"><a href="product_detail.php?token=' + abc.product_id + '"><img src="images/product/' + abc.collection + '/' + abc.category + '/' + abc.imgName + '" alt=" " class="img-responsive img-fluid"></a></td>';
+				
+				var image = '<td class="product-thumbnail"><a href="product_detail.php?token=' + abc.product_id + '"><img src="images/product/children/' + abc.collection + '/' + abc.category + '/' + abc.imgName + '" alt=" " class="img-responsive img-fluid"></a></td>';
 				var productName = '<td class="product-name"><h2 class="h5 text-black">' + abc.name + '</h2></td>';
 				var size = '<td>' + abc.size + '</td>';
 				var productColor = '<td> ' + abc.color.charAt(0).toUpperCase() + abc.color.slice(1) + '</td>';

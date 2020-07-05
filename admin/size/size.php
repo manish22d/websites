@@ -4,21 +4,21 @@ include ("../config/config.php");
 include ("../includes/header.php");
 if (isset($_SESSION["admin_detail"])) {
     ?>
-
 <body>
 	<!---------Nav Menu ----------------->
 	<div id="mynav">
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
-				onclick="myFunction()">
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation" onclick="myFunction()">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto nav-tabs ">
 					<li class="nav-item "><a class="nav-link" href="../main.php">Home <span
-								class="sr-only">(current)</span></a></li>
+							class="sr-only">(current)</span></a></li>
 					<li class="nav-item"><a class="nav-link" href="../product/total_products.php">Total
 							Products</a></li>
 					<li class="nav-item"><a class="nav-link" href="../contact_details.php">Inquiries</a>
@@ -29,13 +29,14 @@ if (isset($_SESSION["admin_detail"])) {
 							Details</a></li>
 					<li class="nav-item"><a class="nav-link" href="../pending_user.php">Pending
 							User</a></li>
-					<li class="nav-item"><a class="nav-link active" href="../size/size.php">Size</a></li>
+							<li class="nav-item"><a class="nav-link active" href="../size/size.php">Size</a></li>
 					<li class="nav-item"><a class="nav-link" href="../color/color.php">Color</a></li>
 					<li class="nav-item"><a class="nav-link" href="../banner/banner.php">Banner</a></li>
 					<li class="nav-item"><a class="nav-link" href="../feature/feature.php">Feature Image</a></li>
 				</ul>
-				<a href="logout.php" title="Logout"> <img src="../assets/images/logout.png" alt="" style="width: 40px"
-						class="img-responsive">
+				<a href="logout.php" title="Logout"> <img
+					src="../assets/images/logout.png" alt="" style="width: 40px"
+					class="img-responsive">
 				</a>
 			</div>
 		</nav>
@@ -70,7 +71,7 @@ if (isset($_SESSION["admin_detail"])) {
 						</tr>
 					</thead>
 					<tbody>
-						<?php
+    <?php
     $sql = "SELECT * FROM size ORDER BY id DESC";
     $query = mysqli_query($con, $sql);
     if (! $query) {
@@ -80,24 +81,25 @@ if (isset($_SESSION["admin_detail"])) {
     while ($row = mysqli_fetch_array($query)) {
         $id = $row['id'];
         $size = $row['size'];
-        ?>
-						<tr>
+        ?> 
+    				<tr>
 							<th scope="row"><?php echo $i; ?></th>
 							<td><?php echo $size ; ?></td>
-							<td><a href="delete_size.php?token=<?php echo base64_encode($id); ?>">
+							<td><a
+								href="delete_size.php?token=<?php echo base64_encode($id); ?>">
 									<button class="btn btn-danger"
 										onclick="return confirm('Are you sure want to delete this row ?')">Delete</button>
-								</a></td>
+							</a></td>
 						</tr>
-						<?php $i++; } ?>
-					</tbody>
+    <?php $i++; } ?>
+  </tbody>
 				</table>
 			</div>
 		</div>
 	</div>
 
 	<!---------//Total Product Table ----------------->
-	<?php
+<?php
 } else {
     echo "<script>
     Swal.fire(

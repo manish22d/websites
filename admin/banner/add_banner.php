@@ -70,9 +70,7 @@ include ("../includes/header.php");
 								<option value="home">Home</option>
 								<option value="about">About</option>
 								<option value="shop">Shop</option>
-								<option value="men">Men</option>
-								<option value="women">Women</option>
-								<option value="children">Children</option>
+								<option value="product">Product</option>
 							</select>
 						</div>
 						<div class="form-group">

@@ -63,7 +63,8 @@ if (isset($_POST['ok'])) {
         $query2 = mysqli_query($con, $sql2);
 
         //send email to user
-        $to =  "From: ".$l_email . "\r\n";
+        $to = $l_email ;
+        // echo $to;
         $message = "
         <html>
         <body>
@@ -72,32 +73,34 @@ if (isset($_POST['ok'])) {
 
         <p>Please reset your passwrod as soon as you login.</p>
         
-        Thanks & Regards,\r\n
-        Online Ordering System</body></html>";
-
+        <p>Thanks & Regards,</p>
+        <p>Online Ordering System</p></body></html>";
+        
+        // echo $message;
         // Always set content-type when sending HTML email
         $header = "MIME-Version: 1.0" . "\r\n";
         $header .= "Content-type: text/html; charset=iso-8859-1" . "\r\n";
 
         // More headers
-        $header .= "From: contact@ankitamahaseth.com";
+        $header .= "From: empirekids1991@gmail.com";
 
 
         // echo "Hello";
         mail($to,'REQUEST FOR ENQUIRY',$message,$header);
 
-
+        // echo "if";
         echo '<script type="text/javascript">
                 Swal.fire(
             "Please Check Your Email for Temporary Password!",
             "",
             "success").then(function(){
-               window.location = "login.php";
+              window.location = "login.php";
               });
           </script>';
             }
     	
         }else{
+            // echo "else";
             echo '<script type="text/javascript">
             Swal.fire(
             "You email Id is not registered with Us , Please Register!!",

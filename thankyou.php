@@ -40,7 +40,7 @@ if (isset($_POST['submit'])) {
     $date = date('d-m-Y H:i:s');
     $c_message = $_POST['c_message'];
          
-$to = 'contact@ankitamahaseth.com';
+    $to = 'empirekids1991@gmail.com';
 
 $message = "
 <html>

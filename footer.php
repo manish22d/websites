@@ -10,21 +10,21 @@
               <div class="col-md-12">
                 <h3 class="footer-heading mb-4">Quick Links</h3>
               </div>
-                <div class="col-md-6">
+                <div class="col-md-12">
                 <ul class="list-unstyled">
                   <li><a href="index.php">Home</a></li>
                   <li><a href="about.php">About Us</a></li>
-<!--                   <li><a href="shop.php">Shop</a></li> -->
                   <li><a href="contact.php">Contact Us</a></li>
+                  <!-- <li><a href="children-collection.php">Children</a></li> -->
                 </ul>
               </div>
-              <div class="col-md-6">
+              <!-- <div class="col-md-6">
                 <ul class="list-unstyled">
                   <li><a href="men-collection.php">Men</a></li>
                   <li><a href="women-collection.php">Women</a></li>
                   <li><a href="children-collection.php">Children</a></li>
                 </ul>
-              </div>
+              </div> -->
             </div>
           </div>  
           <div class="col-md-6">
@@ -34,24 +34,11 @@
                 <li class="address">IX/6342, Netaji Gali, Gandhi Nagar,Delhi 110031</li>
                 <li class="phone"><a href="tel:+917042425007">+91 7042425007</a></li>
                 <li class="mail"><a href="mailto:empirekids1991@gmail.com" style="color: #000;">empirekids1991@gmail.com</a></li>
-                <li style="padding-left: 0px;"><a href="https://www.facebook.com/empirekids1991/"><i class="fa fa-facebook"></i></a> &nbsp;&nbsp;<a href="https://instagram.com/empireapparelss?igshid=1p2zvucs1mpjx"><i class="fa fa-instagram"></i></a></li>
-<!--                 <br/><br/> -->
-<!--                 <li class="instagram"></li> -->
+                <li style="padding-left: 0px;"><a href="https://www.facebook.com/empirekids1991/"><img src="images/social/facebook.png" width="5%"></a> &nbsp;&nbsp;<a href="https://instagram.com/empireapparelss?igshid=1p2zvucs1mpjx"><img src="images/social/instagram.png" width="5%"></a></li>
                 <!-- <li class="email"><a href="mailto:ankitbansal2002@gmail.com">ankitbansal2002@gmail.com</a></li> -->
               </ul>
             </div>
           </div>
-<!--           <div class="col-md-4"> -->
-<!--             <div class="block-7"> -->
-<!--               <form action="#" method="post"> -->
-<!--                 <label for="email_subscribe" class="footer-heading">Subscribe</label> -->
-<!--                 <div class="form-group"> -->
-<!--                   <input type="text" class="form-control py-4" id="email_subscribe" placeholder="Email"> -->
-<!--                   <input type="submit" class="btn btn-sm btn-primary" value="Send"> -->
-<!--                 </div> -->
-<!--               </form> -->
-<!--             </div> -->
-<!--           </div> -->
           <div class="clearfix"></div>
         </div>
         <div class="row pt-5 mt-5 text-center">
@@ -65,7 +52,7 @@
       </div>
     </footer>
   </div>
-  <script src="http://ankitamahaseth.com/cdn_js/cart.js"></script>
+  <script src="https://ankitamahaseth.com/cdn_js/cart.js"></script>
   <script src="js/jquery-ui.js"></script>
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>

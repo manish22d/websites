@@ -93,11 +93,7 @@ while ($row = mysqli_fetch_array($query)) {
 									<?php if($page == "about") echo "selected"; ?>>About</option>
 								<option value="shop"
 									<?php if($page == "shop") echo "selected"; ?>>Shop</option>
-								<option value="men" <?php if($page == "men") echo "selected"; ?>>Men</option>
-								<option value="women"
-									<?php if($page == "women") echo "selected"; ?>>Women</option>
-								<option value="children"
-									<?php if($page == "children") echo "selected"; ?>>Children</option>
+								<option value="product" <?php if($page == "product") echo "selected"; ?>>Product</option>
 							</select>
 						</div>
 						<div class="form-group">
@@ -139,10 +135,9 @@ if (isset($_POST['submit'])) {
         $newfilename = round(microtime(true)) . '.' . end($temp);
         $image_info = getimagesize("$img_tempath");
         if($image_info[0]!=1000 || $image_info[1]!=1800){
-        echo "<script>document.getElementById('banner_image').style.border='2px solid red';
-        </script>";
+       		echo "<script>document.getElementById('banner_image').style.border='2px solid red';</script>";
         }else{
-        move_uploaded_file($img_tempath, '../../images/banner/' . $newfilename);
+       		move_uploaded_file($img_tempath, '../../images/banner/' . $newfilename);
     
 
     $sql = "UPDATE banner 
@@ -158,7 +153,7 @@ if (isset($_POST['submit'])) {
     }
     $sql = $sql . " WHERE id = '$getid' ";
 
-    //echo $sql;
+    echo $sql;
 
     $query = mysqli_query($con, $sql);
 
@@ -174,8 +169,31 @@ if (isset($_POST['submit'])) {
              window.location = "banner.php";
             });
       </script>';
-    }
-}
-}
+    	}
+	}
+	}else{
+		$sql = "UPDATE banner 
+      		SET title = '$banner_title',
+         	heading= '$banner_text',
+          	button_text = '$button_text',
+           	page = '$page'";
+        $sql = $sql . " WHERE id = '$getid' ";
+
+         $query = mysqli_query($con, $sql);
+
+	    if (! $query) {
+	        echo "Error : " . mysqli_error($con);
+	    } else {
+        // echo "Success";
+	        echo '<script type="text/javascript">
+	              Swal.fire(
+	          "updated successully!",
+	          "",
+	          "success").then(function(){
+	             window.location = "banner.php";
+	            });
+	      	</script>';
+    	}
+	}
 }
 ?>

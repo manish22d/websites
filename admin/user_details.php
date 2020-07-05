@@ -69,7 +69,6 @@ if(isset($_SESSION["admin_detail"]))
       <th scope="col">Yearly Trunover</th>
       <th scope="col">Intrested In</th>
       <th scope="col">Whatsapp Number</th>
-<!--       <th scope="col">Visiting Card Image</th> -->
       <th scope="col">Booking Station</th>
       <th scope="col">Private Marka</th>
       <th scope="col">Transport Detail</th>
@@ -120,9 +119,9 @@ if(isset($_SESSION["admin_detail"]))
                   <td><?php echo $gst_number ?></td>
                   <td><?php echo $pan_number ?></td>
                   <td><?php echo $full_address." ".$full_address2 ?></td>
-                  <td><?php echo $yearly_turnover ?></td>
                   <td><?php echo $type_of_dealer ?></td>
                   <td><?php echo $contact_person ?></td>
+                  <td><?php echo $yearly_turnover ?></td>
                   <td><?php echo $interested_in ?></td>
                   <td><?php echo $whatsapp_number ?></td>
                   <td><?php echo $booking_station ?></td>

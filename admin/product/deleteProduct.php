@@ -3,7 +3,6 @@ include ("../config/config.php");
 include ("../includes/header.php");
 $getid=base64_decode($_GET['token']);
 
-echo $getid;
 if(! $con ) {
       die('Could not connect: ' . mysqli_error());
    }  
