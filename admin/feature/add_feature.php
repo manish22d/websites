@@ -54,8 +54,12 @@
               <select id="type" class="form-control" name="type" required="">
                   <option selected>Choose...</option>
                   <option value="baba suit">baba suit</option>
-                  <option value="ethnic wear">ethnic wear</option>
                   <option value="shirt">shirt</option>
+                  <option value="ethnic wear">ethnic wear</option>
+                  <option value="tshirt">T-Shirt</option>
+                  <option value="pant">Pant</option>
+                  <option value="trackpant">track Pant</option>
+                  <option value="capri">capri</option>
                   <option value="infant">infant</option>
                 </select>
             </div>
